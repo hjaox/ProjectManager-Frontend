@@ -1,24 +1,25 @@
-import { useNavigate } from "react-router-dom";
-import Guest from "./components/Guest";
-import Login from "./components/Login";
-import Register from "./components/Regsiter";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
-    let nav = useNavigate();
-
     
     return (
         <>
         <div>
-            <Login/>
+            <Link to={`/Login`}>
+                <p>Login</p>
+            </Link>
         </div>
 
         <div>
-            <Guest/>
+            <Link to={`/Guest`}>
+                <p>Guest</p>
+            </Link>
         </div>
 
         <div>
-            <Register/>
+            <Link to={`/Register`}>
+                <p>Register</p>
+            </Link>
         </div>
         </>
     )
