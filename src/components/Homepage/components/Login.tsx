@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useState } from "react";
+import { getUser } from "../../../lib/axios/users";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
     let [username, setUsername] = useState("");
     let [password, setPassword] = useState("");
+    let nav = useNavigate();
 
     function handleUsernameInput(event: React.ChangeEvent<HTMLInputElement>): void {
         setUsername(event.target.value);
@@ -14,7 +17,13 @@ export default function Login() {
 
     function handleSubmit(event : React.FormEvent<HTMLFormElement>): void {
         event.preventDefault();
-        console.log(username, password);
+        getUser(username, password)
+        .then(user => {
+            nav(`/Dashboard/${username}`)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     return (
