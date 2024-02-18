@@ -12,6 +12,7 @@ import Guest from './components/Homepage/components/Guest.tsx';
 import Register from './components/Homepage/components/Regsiter.tsx';
 import Homepage from './components/Homepage/Homepage.tsx';
 import Test from './Test.tsx';
+import Dashboard from './components/Dashboard/Dashboard.tsx';
 
 const router = createBrowserRouter([
   {
@@ -27,12 +28,16 @@ const router = createBrowserRouter([
     element: <Guest/>
   },
   {
-    path: "Register",
+    path: "/Register",
     element: <Register/>
   },
   {
-    path: "Test",
+    path: "/Test",
     element: <Test/>
+  },
+  {
+    path: "/Dashboard/:username",
+    element: <Dashboard/>
   }
 ]);
 
