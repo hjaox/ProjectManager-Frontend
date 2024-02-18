@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { getUser } from "../../../lib/axios/users";
 
 export default function Login() {
     let [username, setUsername] = useState("");
@@ -14,7 +15,14 @@ export default function Login() {
 
     function handleSubmit(event : React.FormEvent<HTMLFormElement>): void {
         event.preventDefault();
-        console.log(username, password);
+        console.log(username, password)
+        getUser(username, password)
+        .then(user => {
+            console.log(user)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     return (

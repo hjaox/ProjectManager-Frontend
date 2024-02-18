@@ -8,8 +8,12 @@ export function getUsers() {
 }
 
 export function getUser(username: string, password: string) {
-    return instance.get(`(/api/user/${username}/${password})`)
+    console.log(username, password)
+    return instance.get(`/api/user/${username}/${password}`)
     .then(({data: {user}}) => {
         return user
+    })
+    .catch(() => {
+        return Promise.reject("Incorrect username or password.")
     })
 }
