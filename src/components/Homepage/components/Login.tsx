@@ -19,7 +19,7 @@ export default function Login() {
         event.preventDefault();
         getUser(username, password)
         .then(user => {
-            nav(`/Dashboard/${username}`)
+            nav(`/Dashboard/${user.username}/${user.user_id}`)
         })
         .catch(err => {
             console.log(err)
